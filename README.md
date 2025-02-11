@@ -4,12 +4,23 @@
 
 **• I am not responsible for any misuse you give to this tool.**
 # Installation
+
+```bash
+git clone https://github.com/vixho69/downloader-music-spotify
+```
+```bash
+cd downloader-music-spotify
+```
 ```bash
 npm install node-fetch axios qs
 ```
 ```py
 pip install -r requirements.txt
 ```
+```py
+python main.py
+```
+
 **• This tool is only available for Linux, it will soon be available for Windows.**
 
 # Imagenes:
