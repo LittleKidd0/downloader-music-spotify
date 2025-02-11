@@ -11,11 +11,11 @@ git clone https://github.com/vixho69/downloader-music-spotify
 ```bash
 cd downloader-music-spotify
 ```
-**• JavaScript **
+**• JavaScript**
 ```bash
 npm install node-fetch axios qs
 ```
-**• Python **
+**• Python**
 ```py
 pip install -r requirements.txt
 ```
