@@ -14,21 +14,9 @@ git clone https://github.com/vixho69/downloader-music
 ```bash
 cd downloader-music
 ```
-**• JavaScript**
-```bash
-npm install node-fetch axios qs
 ```
-**• Python**
-
-**•Only spotify links should be used to download the songs.**
-```py
-pip install -r requirements.txt
+chmod +x script.sh && ./install.sh
 ```
-```py
-python main.py
-```
-
-
 
 **• This tool was made to bypass the 3-day download limits..**
 
