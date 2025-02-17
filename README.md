@@ -1,4 +1,4 @@
-# Downloader music V1.1
+# Downloader music spotify V1.1
 
 
 # Disclaimers
@@ -9,7 +9,7 @@
 # Installation
 
 ```bash
-git clone https://github.com/vixho69/downloader-music
+git clone https://github.com/vixho69/downloader-music-spotify
 ```
 ```bash
 cd downloader-music
