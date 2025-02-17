@@ -1,4 +1,7 @@
-# Downloader music spotify
+# Downloader music V1.1
+
+
+# Disclaimers
 
 **• This is a bypass music download tool using interceptions.**
 
@@ -6,16 +9,18 @@
 # Installation
 
 ```bash
-git clone https://github.com/vixho69/downloader-music-spotify
+git clone https://github.com/vixho69/downloader-music
 ```
 ```bash
-cd downloader-music-spotify
+cd downloader-music
 ```
 **• JavaScript**
 ```bash
 npm install node-fetch axios qs
 ```
 **• Python**
+
+**•Only spotify links should be used to download the songs.**
 ```py
 pip install -r requirements.txt
 ```
@@ -23,13 +28,14 @@ pip install -r requirements.txt
 python main.py
 ```
 
-**• This tool is only available for Linux, it will soon be available for Windows.**
 
-# Imagenes:
-![imagen](https://github.com/user-attachments/assets/886bd462-e205-47ca-a66f-608cac3490e4)
 
-![imagen](https://github.com/user-attachments/assets/8640fc52-95ee-4f32-b298-adbc916a1523)
+**• This tool was made to bypass the 3-day download limits..**
 
-Contacto
+![imagen](https://github.com/user-attachments/assets/c4779395-7cde-49c0-9426-860dfda19d67)
+
+# This tool is only available for Linux, it will soon be available for Windows.
+
+Contact
 
 Discord: little.kid
