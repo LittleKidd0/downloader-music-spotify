@@ -16,7 +16,7 @@ chmod +x install.sh && ./install.sh
 
 • Termux: ❌
 
-• Black Arch Linux: 
+• Black Arch Linux: ❌
 #
 
 # DISCLAIMER
