@@ -2,12 +2,11 @@ import fs from 'fs';
 import axios from 'axios';
 import qs from 'qs';
 
+// Leer el archivo de datos 'data.json'
 const dataFile = fs.readFileSync('data.json', 'utf8');
-
 const jsonData = JSON.parse(dataFile);
 
 const url = "https://spotisongdownloader.to/api/composer/spotify/wertyuht3456.php";
-
 const song_name2 = jsonData.song_name;
 const artist2 = jsonData.artist;
 const url2 = jsonData.url;
@@ -20,7 +19,7 @@ const formData = {
 
 const headers = {
   'Host': 'spotisongdownloader.to',
-  'Cookie': 'PHPSESSID=m6tt49a1bn65dllk3o99p6455v; quality=m4a',
+  'Cookie': 'PHPSESSID=gav1675315tjrt3dfchbahtvo4; quality=m4a',
   'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64; rv:134.0) Gecko/20221904 Firefox/134.0',
   'Accept': 'application/json, text/javascript, */*; q=0.01',
   'Accept-Language': 'es-ES,es;q=0.8,en-US;q=0.5,en;q=0.3',
@@ -39,24 +38,20 @@ const headers = {
   'Priority': 'u=0',
   'Te': 'trailers'
 };
-
 axios.post(url, qs.stringify(formData), { headers })
   .then(response => {
     if (response.status === 200) {
       console.log("Data successfully obtained!");
 
       const dlink = response.data.dlink;
-
       let finalData = {};
       if (fs.existsSync('final.json')) {
         const finalFile = fs.readFileSync('final.json', 'utf8');
         finalData = JSON.parse(finalFile);
       }
-
       finalData.dlink = dlink;
 
       fs.writeFileSync('final.json', JSON.stringify(finalData, null, 2));
-
     } else {
       console.log(`Error: ${response.status}`);
     }
