@@ -15,4 +15,4 @@ npm install node-fetch axios qs
 echo "All set! ES modules configured and dependencies installed."
 
 pip install -r requirements.txt
-python main.py
+python3 main.py
