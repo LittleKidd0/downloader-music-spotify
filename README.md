@@ -9,7 +9,7 @@ git clone https://github.com/vixho69/downloader-music-spotify
 cd downloader-music
 ```
 ```
-chmod +x script.sh && ./install.sh
+chmod +x install.sh && ./install.sh
 ```
 # Tested in
 • Linux (Debian): ✔
