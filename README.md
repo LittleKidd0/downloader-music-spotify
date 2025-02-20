@@ -1,9 +1,9 @@
-# Downloader music spotify V1.1
+# Downloader music spotify V1.2
 
 # Installation
 
 ```bash
-git clone https://github.com/vixho69/downloader-music-spotify
+git clone https://github.com/LittleKidd0/downloader-music-spotify
 ```
 ```bash
 cd downloader-music
@@ -14,9 +14,19 @@ chmod +x install.sh && ./install.sh
 # Tested in
 • Linux (Debian): ✔
 
-• Termux: ❌
+• Termux: ✔
 
-• Black Arch Linux: ❌
+• Windows 10: ✔
+
+#
+
+# implementations
+
+**1: Generation of valid cookies for unlimited download**
+
+**2: Use the tool in windows 10!**
+
+**3: Differentiate between systems for file downloads**
 #
 
 # DISCLAIMER
