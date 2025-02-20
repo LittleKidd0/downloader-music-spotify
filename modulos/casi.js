@@ -19,7 +19,7 @@ const formData = {
 
 const headers = {
   'Host': 'spotisongdownloader.to',
-  'Cookie': 'PHPSESSID=gav1675315tjrt3dfchbahtvo4; quality=m4a',
+  'Cookie': 'PHPSESSID=u5hbd2kj3ldj8jscjk6opr34pr; quality=m4a',
   'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64; rv:134.0) Gecko/20221904 Firefox/134.0',
   'Accept': 'application/json, text/javascript, */*; q=0.01',
   'Accept-Language': 'es-ES,es;q=0.8,en-US;q=0.5,en;q=0.3',
