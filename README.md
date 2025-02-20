@@ -1,6 +1,8 @@
 # Downloader music spotify V1.2
 
-# Installation
+# Installation & requirements
+
+Have node js downloaded on your computer.
 
 ```bash
 git clone https://github.com/LittleKidd0/downloader-music-spotify
@@ -11,6 +13,11 @@ cd downloader-music
 ```
 chmod +x install.sh && ./install.sh
 ```
+Windows
+```bat
+install.bat
+```
+#
 # Tested in
 • Linux (Debian): ✔
 
