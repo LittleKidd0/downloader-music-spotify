@@ -8,7 +8,7 @@ Have node js downloaded on your computer.
 git clone https://github.com/LittleKidd0/downloader-music-spotify
 ```
 ```bash
-cd downloader-music
+cd downloader-music-spotify
 ```
 ```
 chmod +x install.sh && ./install.sh
