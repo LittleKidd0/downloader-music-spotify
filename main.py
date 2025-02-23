@@ -7,127 +7,116 @@ import platform
 
 system_ = platform.system()
 
-os.system("cls" if os.name == "nt" else "clear")
+def clear_console():
+    os.system("cls" if os.name == "nt" else "clear")
 
-logo = f"""{Fore.GREEN}
+def remove_temp_files():
+    os.system("rm -f data.json final.json datos2.json links.json")
+
+def load_json(file_name):
+    try:
+        with open(file_name, 'r', encoding='utf8') as f:
+            return json.load(f)
+    except (FileNotFoundError, json.JSONDecodeError):
+        print(f"Failed to load {file_name}.")
+        return None
+
+def run_node_module(script, *args):
+    os.system(f"node ./modulos/{script} {' '.join(args)}")
+
+def display_logo():
+    logo = f"""{Fore.GREEN}
 ██████╗  ██████╗ ██╗    ██╗███╗   ██╗██╗      ██████╗  █████╗ ██████╗ ███████╗██████╗     ███╗   ███╗██╗   ██╗███████╗██╗ ██████╗    ███████╗██████╗  ██████╗ ████████╗██╗███████╗██╗   ██╗
 ██╔══██╗██╔═══██╗██║    ██║████╗  ██║██║     ██╔═══██╗██╔══██╗██╔══██╗██╔════╝██╔══██╗    ████╗ ████║██║   ██║██╔════╝██║██╔════╝    ██╔════╝██╔══██╗██╔═══██╗╚══██╔══╝██║██╔════╝╚██╗ ██╔╝
 ██║  ██║██║   ██║██║ █╗ ██║██╔██╗ ██║██║     ██║   ██║███████║██║  ██║█████╗  ██████╔╝    ██╔████╔██║██║   ██║███████╗██║██║         ███████╗██████╔╝██║   ██║   ██║   ██║█████╗   ╚████╔╝ 
 ██║  ██║██║   ██║██║███╗██║██║╚██╗██║██║     ██║   ██║██╔══██║██║  ██║██╔══╝  ██╔══██╗    ██║╚██╔╝██║██║   ██║╚════██║██║██║         ╚════██║██╔═══╝ ██║   ██║   ██║   ██║██╔══╝    ╚██╔╝  
 ██████╔╝╚██████╔╝╚███╔███╔╝██║ ╚████║███████╗╚██████╔╝██║  ██║██████╔╝███████╗██║  ██║    ██║ ╚═╝ ██║╚██████╔╝███████║██║╚██████╗    ███████║██║     ╚██████╔╝   ██║   ██║██║        ██║   
-╚═════╝  ╚═════╝  ╚══╝╚══╝ ╚═╝  ╚═══╝╚══════╝ ╚═════╝ ╚═╝  ╚═╝╚═════╝ ╚══════╝╚═╝  ╚═╝    ╚═╝     ╚═╝ ╚═════╝ ╚══════╝╚═╝ ╚═════╝    ╚══════╝╚═╝      ╚═════╝    ╚═╝   ╚═╝╚═╝        ╚═╝{Fore.RESET}   
+╚═════╝  ╚═════╝  ╚══╝╚══╝ ╚═╝  ╚═══╝╚══════╝ ╚═════╝ ╚═╝  ╚═╝╚═════╝ ╚══════╝╚═╝  ╚═╝    ╚═╝     ╚═╝ ╚═════╝ ╚══════╝╚═╝ ╚═════╝    ╚══════╝╚═╝      ╚═════╝    ╚═╝   ╚═╝╚═╝        ╚═╝{Fore.RESET}
 
                                                                                     By: {Fore.YELLOW}vixho69{Fore.RESET}
                                                                                  update: 20-02-2025
 """
+    print(logo)
 
-print(logo, """
-                                    [1] downloader music spotify. web spotisongdownloader.to
-                                    [2] creator page
-                                    [3] Exit.
-""")
-
-def windows(dlink):
+def windows_download(dlink):
     webbrowser.open(dlink)
-    input1 = input("Do you want to download a track again? (s/n): ")
-    if input1.lower() == "s":
-        os.system("rm data.json & rm final.json & rm datos2.json")
+    if input("Download another track? (s/n): ").lower() == "s":
+        remove_temp_files()
         track()
-    elif input1.lower() == "n":
-        os.system("rm data.json & rm final.json & rm datos2.json")
-        main()
     else:
-        print("Invalid input. Returning to the main menu.")
+        remove_temp_files()
         main()
 
 def album():
-    os.system("cls" if os.name == "nt" else "clear")
-    print(logo)
-    
+    clear_console()
+    display_logo()
     url_album = input("URL album: ")
-
-    if url_album.strip() and url_album.startswith("https://open.spotify.com"):
-        os.system(f"node ./modulos/album.js {url_album}")
-        time.sleep(1)
-        os.system("node ./modulos/album2.js")
-        time.sleep(1)
-        os.system("node ./modulos/ordenamiento.js")
-
+    if url_album.startswith("https://open.spotify.com"):
+        run_node_module("album.js", url_album)
+        run_node_module("album2.js")
+        run_node_module("ordenamiento.js")
         os.makedirs('result', exist_ok=True)
-
-        with open('links.json', 'r', encoding='utf8') as f:
-            download_links = json.load(f)
-
-        for link in download_links:
-            os.system(f"wget '{link}' -P result/")
-        os.system("rm links.json & rm datos2.json & rm final.json")
-        os.system("node ./modulos/ren.js")
-        time.sleep(1)
-        again = input("¿Do you want to download another album? (s/n): ")
-        
-        if again.lower() == 's':
-            os.system("rm links.json & rm datos2.json & rm final.json")
-            album()
+        links = load_json('links.json')
+        if system_ == "Windows":
+            windows_download(dlink)
+        elif system_ == "Linux" and dlink and name:
+            os.system(f"wget '{dlink}' -P result/")
+            run_node_module("ren.js")
         else:
-            main()
+            if links:
+                for link in links:
+                    os.system(f"wget '{link}' -P result/")
+            remove_temp_files()
+            run_node_module("ren.js")
+            if input("Download another album? (s/n): ").lower() == "s":
+                album()
+            else:
+                main()
     else:
         print("Invalid URL. Please enter a valid Spotify URL.")
-
+        time.sleep(2)
+        album()
 def track():
-    os.system("cls" if os.name == "nt" else "clear")
-    print(logo)
+    clear_console()
+    display_logo()
     url_track = input("URL track: ")
-
-    if url_track.strip() and url_track.startswith("https://open.spotify.com"):
-        os.system(f"node ./modulos/pruebas.js {url_track}")
-        os.system(f"node ./modulos/casi.js")
-
-        with open('final.json', 'r') as file:
-            json_data = json.load(file)
-            dlink = json_data.get('dlink')
-        with open("data.json", "r") as file2:
-            json_data2 = json.load(file2)
-            name = json_data2.get("song_name")
-            if system_ == "Windows":
-                windows(dlink)
-            elif system_ == "Linux":
-                if name and dlink:
-                    os.system(f"wget '{dlink}' -P result/")
-                    os.system("node ./modulos/ren.js")
-                else:
-                    print("Song name or download link not found.")
-            input1 = input("Do you want to download a track again? (s/n): ")
-            if input1.lower() == "s":
-                os.system("rm data.json & rm final.json & rm datos2.json")
-                track()
-            elif input1.lower() == "n":
-                os.system("rm data.json & rm final.json & rm datos2.json")
-                main()
-            else:
-                print("Invalid input. Returning to the main menu.")
-                main()
+    if url_track.startswith("https://open.spotify.com"):
+        run_node_module("pruebas.js", url_track)
+        run_node_module("casi.js")
+        dlink = load_json('final.json').get('dlink')
+        name = load_json('data.json').get("song_name")
+        if system_ == "Windows":
+            windows_download(dlink)
+        elif system_ == "Linux" and dlink and name:
+            os.system(f"wget '{dlink}' -P result/")
+            run_node_module("ren.js")
+        else:
+            print("Song name or download link not found.")
+        remove_temp_files()
+        track()
     else:
-        print("URL is not recognized.")
+        print("URL not recognized.")
         time.sleep(2)
         track()
 
 def peticiones():
-    os.system("cls" if os.name == "nt" else "clear")
-    print(logo, """
-                                    [1] download only track
-                                    [2] download only album
-                                    [3] return
-""")
+    clear_console()
+    display_logo()
+    print("""
+                                [1] download only track
+                                [2] download only album
+                                [3] return
+    """)
     try:
-        input2 = int(input(">> "))
-        if input2 == 1:
+        option = int(input(">> "))
+        if option == 1:
             track()
-        elif input2 == 2:
+        elif option == 2:
             album()
-        elif input2 == 3:
+        elif option == 3:
             main()
         else:
-            print("invalid option...")
+            print("Invalid option...")
             time.sleep(2)
             peticiones()
     except ValueError:
@@ -136,20 +125,21 @@ def peticiones():
         peticiones()
 
 def main():
-    os.system("cls" if os.name == "nt" else "clear")
-    print(logo, """
-                                    [1] downloader music spotify. web spotisongdownloader.to
-                                    [2] creator page
-                                    [3] Exit.
-""")
+    clear_console()
+    display_logo()
+    print("""
+                                [1] downloader music spotify. web spotisongdownloader.to
+                                [2] creator page
+                                [3] Exit.
+    """)
     try:
-        opciones = int(input(">> "))
-        if opciones == 1:
+        option = int(input(">> "))
+        if option == 1:
             peticiones()
-        elif opciones == 2:
+        elif option == 2:
             webbrowser.open("https://github.com/LittleKidd0")
-        elif opciones == 3:
-            os.system("cls" if os.name == "nt" else "clear")
+        elif option == 3:
+            clear_console()
             print("Bye!")
             os._exit(0)
         else:
@@ -161,4 +151,5 @@ def main():
         time.sleep(2)
         main()
 
-main()
+if __name__ == "__main__":
+    main()
