@@ -68,7 +68,7 @@ def album():
         peticiones()
     else:
 
-        if url_album.startswith("https://open.spotify.com/intl-es/album/" or "https://open.spotify.com/album"):
+        if url_album.startswith(("https://open.spotify.com/intl-es/album/","https://open.spotify.com/album")):
             run_node_module("album.js", url_album)
             run_node_module("album2.js")
             run_node_module("ordenamiento.js")
@@ -106,7 +106,7 @@ def track():
         main()
     else:
 
-        if url_track.startswith("https://open.spotify.com/intl-es/track/" or "https://open.spotify.com/track/"):
+        if url_track.startswith(("https://open.spotify.com/intl-es/track/", "https://open.spotify.com/track/")):
             run_node_module("pruebas.js", url_track)
             run_node_module("casi.js")
             dlink = load_json('final.json').get('dlink')
