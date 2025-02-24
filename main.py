@@ -43,6 +43,7 @@ def display_logo():
 
 def windows_download(dlink):
     webbrowser.open(dlink)
+    time.sleep(4)
     if input("Download another track? (s/n): ").lower() == "s":
         remove_temp_files()
         track()
