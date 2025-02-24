@@ -63,7 +63,7 @@ def album():
     clear_console()
     display_logo()
     url_album = input("URL album: ")
-    if url_album.startswith("https://open.spotify.com"):
+    if url_album.startswith("https://open.spotify.com/intl-es/album/"):
         run_node_module("album.js", url_album)
         run_node_module("album2.js")
         run_node_module("ordenamiento.js")
@@ -80,6 +80,11 @@ def album():
                 os.system(f"wget '{link}' -P result/")
             run_node_module("ren.js")
             remove_temp_files()
+            if input("Download another album? (s/n): ").lower() == "s":
+                album()
+            else:
+                remove_temp_files()
+                main()
         else:
             print("No links found.")
             remove_temp_files()
@@ -92,7 +97,7 @@ def track():
     clear_console()
     display_logo()
     url_track = input("URL track: ")
-    if url_track.startswith("https://open.spotify.com"):
+    if url_track.startswith("https://open.spotify.com/intl-es/track/"):
         run_node_module("pruebas.js", url_track)
         run_node_module("casi.js")
         dlink = load_json('final.json').get('dlink')
@@ -103,6 +108,11 @@ def track():
             os.system(f"wget '{dlink}' -P result/")
             run_node_module("ren.js")
             remove_temp_files()
+            if input("Download another track? (s/n): ").lower() == "s":
+                album()
+            else:
+                remove_temp_files()
+                main()
         else:
             print("Song name or download link not found.")
             remove_temp_files()
@@ -166,3 +176,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+#Hola!
