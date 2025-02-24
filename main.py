@@ -62,65 +62,73 @@ def download_links(file, delay=2):
 def album():
     clear_console()
     display_logo()
-    url_album = input("URL album: ")
-    if url_album.startswith("https://open.spotify.com/intl-es/album/"):
-        run_node_module("album.js", url_album)
-        run_node_module("album2.js")
-        run_node_module("ordenamiento.js")
-        os.makedirs('result', exist_ok=True)
-        links = load_json('links.json')
-        if system_ == "Windows":
-            download_links('links.json', 3)
-            if input("Download another album? (s/n): ").lower() == "s":
-                album()
-            else:
-                main()
-        elif system_ == "Linux" and links:
-            for link in links:
-                os.system(f"wget '{link}' -P result/")
-            run_node_module("ren.js")
-            remove_temp_files()
-            if input("Download another album? (s/n): ").lower() == "s":
-                album()
-            else:
-                remove_temp_files()
-                main()
-        else:
-            print("No links found.")
-            remove_temp_files()
+    url_album = input("URL album (enter for come back): ")
+    if url_album == "":
+        peticiones()
     else:
-        print("Invalid URL. Please enter a valid Spotify URL.")
-        time.sleep(2)
-        album()
+
+        if url_album.startswith("https://open.spotify.com/intl-es/album/"):
+            run_node_module("album.js", url_album)
+            run_node_module("album2.js")
+            run_node_module("ordenamiento.js")
+            os.makedirs('result', exist_ok=True)
+            links = load_json('links.json')
+            if system_ == "Windows":
+                download_links('links.json', 3)
+                if input("Download another album? (s/n): ").lower() == "s":
+                    album()
+                else:
+                    main()
+            elif system_ == "Linux" and links:
+                for link in links:
+                    os.system(f"wget '{link}' -P result/")
+                run_node_module("ren.js")
+                remove_temp_files()
+                if input("Download another album? (s/n): ").lower() == "s":
+                    album()
+                else:
+                    remove_temp_files()
+                    main()
+            else:
+                print("No links found.")
+                remove_temp_files()
+        else:
+            print("Invalid URL. Please enter a valid Spotify URL.")
+            time.sleep(2)
+            album()
 
 def track():
     clear_console()
     display_logo()
-    url_track = input("URL track: ")
-    if url_track.startswith("https://open.spotify.com/intl-es/track/"):
-        run_node_module("pruebas.js", url_track)
-        run_node_module("casi.js")
-        dlink = load_json('final.json').get('dlink')
-        name = load_json('data.json').get("song_name")
-        if system_ == "Windows":
-            windows_download(dlink)
-        elif system_ == "Linux" and dlink and name:
-            os.system(f"wget '{dlink}' -P result/")
-            run_node_module("ren.js")
-            remove_temp_files()
-            if input("Download another track? (s/n): ").lower() == "s":
-                album()
-            else:
-                remove_temp_files()
-                main()
-        else:
-            print("Song name or download link not found.")
-            remove_temp_files()
-        track()
+    url_track = input("URL track (enter for come back): ")
+    if url_track == "":
+        main()
     else:
-        print("URL not recognized.")
-        time.sleep(2)
-        track()
+
+        if url_track.startswith("https://open.spotify.com/intl-es/track/"):
+            run_node_module("pruebas.js", url_track)
+            run_node_module("casi.js")
+            dlink = load_json('final.json').get('dlink')
+            name = load_json('data.json').get("song_name")
+            if system_ == "Windows":
+                windows_download(dlink)
+            elif system_ == "Linux" and dlink and name:
+                os.system(f"wget '{dlink}' -P result/")
+                run_node_module("ren.js")
+                remove_temp_files()
+                if input("Download another track? (s/n): ").lower() == "s":
+                    album()
+                else:
+                    remove_temp_files()
+                    main()
+            else:
+                print("Song name or download link not found.")
+                remove_temp_files()
+            track()
+        else:
+            print("URL not recognized.")
+            time.sleep(2)
+            track()
 
 def peticiones():
     clear_console()
