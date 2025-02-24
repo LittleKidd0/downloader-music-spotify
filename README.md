@@ -50,7 +50,7 @@ python3 format_m4a_win.py
 
 ![imagen](https://github.com/user-attachments/assets/c4779395-7cde-49c0-9426-860dfda19d67)
 
-# This tool is only available for Linux, it will soon be available for Windows.
+# This too is available for Linux and Windows 10 (not tested on previous versions).
 
 Contact
 
