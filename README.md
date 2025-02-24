@@ -2,7 +2,7 @@
 
 # Installation & requirements
 
-Have node js downloaded on your computer.
+Have node js and Python downloaded on your computer.
 
 ```bash
 git clone https://github.com/LittleKidd0/downloader-music-spotify
