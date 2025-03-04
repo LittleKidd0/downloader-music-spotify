@@ -17,11 +17,6 @@ Windows
 ```bat
 install.bat
 ```
-#
-Change format in case it is saved in mp3 format to modify it to m4a in windows 10
-```
-python3 format_m4a_win.py
-```
 
 #
 # Tested in
