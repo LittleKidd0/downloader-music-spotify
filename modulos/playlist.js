@@ -11,7 +11,6 @@ if (!url) {
 const url_ = `https://spotisongdownloader.to/api/composer/spotify/xplaylist_info.php?url=${url}`;
 console.log(url_)
 
-// Configurar las cabeceras de la solicitud
 const headers = {
     'Host': 'spotisongdownloader.to',
     'Cookie': 'PHPSESSID=LittleKidd0',
@@ -31,24 +30,20 @@ const headers = {
 };
 async function getPlaylistData() {
     try {
-        // Realizar la solicitud GET
         const response = await fetch(url_, {
             method: 'GET',
             headers: headers
         });
 
         if (!response.ok) {
-            throw new Error('Error al obtener los datos: ' + response.statusText);
+            throw new Error('Error getting data: ' + response.statusText);
         }
-
-        // Convertir la respuesta en JSON
         const data = await response.json();
 
-        // Guardar los datos en un archivo JSON
         fs.writeFileSync('data.json', JSON.stringify(data, null, 2));
-        console.log('Datos guardados en data.json');
+        console.log('Data stored in data.json');
     } catch (error) {
-        console.error('Hubo un error:', error);
+        console.error('There was an error:', error);
     }
 }
 
