@@ -1,8 +1,8 @@
-# Downloader music spotify V1.2
+# Downloader music spotify V1.3
 
 # Installation & requirements
 
-Have node js and Python downloaded on your computer.
+Have Node.js and Python downloaded on your computer, preferably the latest versions.
 
 ```bash
 git clone https://github.com/LittleKidd0/downloader-music-spotify
@@ -28,13 +28,18 @@ install.bat
 
 #
 
-# implementations
-
+# New feature implementations and version 1/1.2
 **1: Generation of valid cookies for unlimited download**
 
 **2: Use the tool in windows 10!**
 
 **3: Differentiate between systems for file downloads**
+# version 1.3
+**4: New playlist download method**
+
+**5: Improved recognition of the "install.sh" file between linux debian and termux**
+
+**6: In the playlist download function, it is downloaded directly without using the "windows_download" function (windows users only)**
 #
 
 # DISCLAIMER
