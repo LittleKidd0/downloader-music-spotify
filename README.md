@@ -17,6 +17,11 @@ Windows
 ```bat
 install.bat
 ```
+Termux
+```
+bash install.sh
+```
+
 
 #
 # Tested in
@@ -37,9 +42,7 @@ install.bat
 # version 1.3
 **4: New playlist download method**
 
-**5: Improved recognition of the "install.sh" file between linux debian and termux**
-
-**6: In the playlist download function, it is downloaded directly without using the "windows_download" function (windows users only)**
+**5: In the playlist download function, it is downloaded directly without using the "windows_download" function (windows users only)**
 #
 
 # DISCLAIMER
