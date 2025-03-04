@@ -12,9 +12,9 @@ def clear_console():
 
 def remove_temp_files():
     if system_ == "Windows":
-        os.system("del /f /q data.json final.json datos2.json links.json")
+        os.system("del /f /q data.json final.json datos2.json links.json datos3.json")
     else:
-        os.system("rm -f data.json final.json datos2.json links.json")
+        os.system("rm -f data.json final.json datos2.json links.json datos3.json")
 
 def load_json(file_name):
     try:
@@ -37,11 +37,12 @@ def display_logo():
 ╚═════╝  ╚═════╝  ╚══╝╚══╝ ╚═╝  ╚═══╝╚══════╝ ╚═════╝ ╚═╝  ╚═╝╚═════╝ ╚══════╝╚═╝  ╚═╝    ╚═╝     ╚═╝ ╚═════╝ ╚══════╝╚═╝ ╚═════╝    ╚══════╝╚═╝      ╚═════╝    ╚═╝   ╚═╝╚═╝        ╚═╝{Fore.RESET}
 
                                                                                     By: {Fore.YELLOW}LittleKidd0{Fore.RESET}
-                                                                                    Date: 20-02-2025
+                                                                                    Date: 03-03-2025
 """
     print(logo)
 
 def windows_download(dlink):
+    print(dlink)
     webbrowser.open(dlink)
     time.sleep(4)
     if input("Download another track? (s/n): ").lower() == "s":
@@ -98,6 +99,49 @@ def album():
             time.sleep(2)
             album()
 
+def playlist():
+    clear_console()
+    display_logo()
+    url_playlist = input("Playlist URL (enter to return): ")
+    if url_playlist == "":
+        main()
+    elif url_playlist.startswith(("https://open.spotify.com/intl-es/playlist", "https://open.spotify.com/playlist")):
+        run_node_module("playlist.js", url_playlist)
+        run_node_module("playlist2.js")
+        if system_ == "Windows":
+            with open("final.json", "r") as osi:
+                datos = json.load(osi)
+                for gg in datos:
+                    webbrowser.open(gg)
+                    time.sleep(2)
+            if input("Download another playlist? (s/n): ").lower() == "s":
+                remove_temp_files()
+                playlist()
+            else:
+                remove_temp_files()
+                main()
+        elif system_ == "Linux":
+            try:
+                with open("final.json", "r", encoding="utf-8") as file:
+                    links2 = json.load(file)
+            except (FileNotFoundError, json.JSONDecodeError):
+                print("Error: final.json no encontrado o tiene un formato incorrecto.")
+                return
+            print(links2)
+            
+            for link in links2:
+                os.system(f"wget '{link}' -P result/")
+            remove_temp_files()
+            
+            if input("Download another album? (s/n): ").lower() == "s":
+                album()
+            else:
+                remove_temp_files()
+                main()
+        else:
+            print("Invalid URL. Please enter a valid Spotify URL.")
+            time.sleep(2)
+            playlist()
 def track():
     clear_console()
     display_logo()
@@ -105,7 +149,6 @@ def track():
     if url_track == "":
         main()
     else:
-
         if url_track.startswith(("https://open.spotify.com/intl-es/track/", "https://open.spotify.com/track/")):
             run_node_module("pruebas.js", url_track)
             run_node_module("casi.js")
@@ -136,16 +179,19 @@ def peticiones():
     display_logo()
     print("""
                                 [1] download only track
-                                [2] download only album
-                                [3] return
+                                [2] download only playlist
+                                [3] download only album
+                                [4] return
     """)
     try:
         option = int(input(">> "))
         if option == 1:
             track()
         elif option == 2:
-            album()
+            playlist()
         elif option == 3:
+            album()
+        elif option == 4:
             main()
         else:
             print("Invalid option...")
