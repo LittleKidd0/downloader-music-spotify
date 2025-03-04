@@ -83,7 +83,7 @@ def album():
                     main()
             elif system_ == "Linux" and links:
                 for link in links:
-                    os.system(f"wget '{link}' -P result/")
+                    os.system(f"wget '{link}' -P albumes/")
                 run_node_module("ren.js")
                 remove_temp_files()
                 if input("Download another album? (s/n): ").lower() == "s":
@@ -125,16 +125,13 @@ def playlist():
                 with open("final.json", "r", encoding="utf-8") as file:
                     links2 = json.load(file)
             except (FileNotFoundError, json.JSONDecodeError):
-                print("Error: final.json no encontrado o tiene un formato incorrecto.")
+                pass
                 return
-            print(links2)
-            
             for link in links2:
-                os.system(f"wget '{link}' -P result/")
+                os.system(f"wget '{link}' -P playlist/")
             remove_temp_files()
-            
-            if input("Download another album? (s/n): ").lower() == "s":
-                album()
+            if input("Download another playlist? (s/n): ").lower() == "s":
+                playlist()
             else:
                 remove_temp_files()
                 main()
