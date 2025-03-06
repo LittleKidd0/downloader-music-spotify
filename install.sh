@@ -11,7 +11,7 @@ else
 fi
 
 # Update packages and install dependencies
-$PKG_MANAGER update -y && $PKG_MANAGER install -y jq nodejs npm python3-pip
+$PKG_MANAGER update -y && $PKG_MANAGER install jq && $PKGMANAGER install nodejs && $PKGMANAGER install npm && $PKGMANAGER install python3-pip
 
 # Ensure package.json exists
 if [ ! -f package.json ]; then
