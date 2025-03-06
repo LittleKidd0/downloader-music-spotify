@@ -39,6 +39,9 @@ bash install.sh
 **2: Use the tool in windows 10!**
 
 **3: Differentiate between systems for file downloads**
+
+**4: The default format is "m4a" and the song bitrate is 128Kbps by default.**
+
 # version 1.3
 **4: New playlist download method**
 
