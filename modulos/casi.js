@@ -37,7 +37,7 @@ async function downloadSong() {
 
     const headers = {
       'Host': 'spotisongdownloader.to',
-      'Cookie': cookieHeader,
+      'Cookie': `${cookieHader}; _ga=; quality=m4a`,
       'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.1; rv:133.0) Gecko/20110101 Firefox/133.0',
       'Accept': 'application/json, text/javascript, */*; q=0.01',
       'Accept-Language': 'en-US,en;q=0.5',
