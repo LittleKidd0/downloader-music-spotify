@@ -84,7 +84,7 @@ def album():
             elif system_ == "Linux" and links:
                 for link in links:
                     os.system(f"wget '{link}' -P albumes/")
-                run_node_module("ren.js")
+                run_node_module("ren.js albumes")
                 remove_temp_files()
                 if input("Download another album? (s/n): ").lower() == "s":
                     album()
@@ -98,7 +98,6 @@ def album():
             print("Invalid URL. Please enter a valid Spotify URL.")
             time.sleep(2)
             album()
-
 def playlist():
     clear_console()
     display_logo()
@@ -127,8 +126,13 @@ def playlist():
             except (FileNotFoundError, json.JSONDecodeError):
                 pass
                 return
+            with open("data.json", "r") as osi:
+                data_ = json.load(osi)
+                pname_value = data_['track_details']['pname']
+                print(pname_value)
             for link in links2:
-                os.system(f"wget '{link}' -P playlist/")
+                os.system(f"wget '{link}' -P playlist/{pname_value}")
+            run_node_module(f"ren.js playlist/{pname_value}")
             remove_temp_files()
             if input("Download another playlist? (s/n): ").lower() == "s":
                 playlist()
