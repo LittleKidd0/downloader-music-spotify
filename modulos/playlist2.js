@@ -20,7 +20,7 @@ const url = 'https://spotisongdownloader.to/api/composer/spotify/wertyuht9847635
 const cookieHeader = await getCookies('https://spotisongdownloader.to');
 const headers = {
     'Host': 'spotisongdownloader.to',
-    'Cookie': cookieHeader,
+    'Cookie': `${cookieHeader}; -ga=; quality=m4a`,
     'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 12.1) AppleWebKit/619.36 (KHTML, like Gecko) Version/15.3.90 Safari/619.36',
     'Accept': 'application/json, text/javascript, */*; q=0.01',
     'Accept-Language': 'es-CL,es;q=0.8,en-US;q=0.5,en;q=0.3',
