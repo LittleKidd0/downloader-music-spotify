@@ -158,7 +158,7 @@ def track():
                 run_node_module("ren.js")
                 remove_temp_files()
                 if input("Download another track? (s/n): ").lower() == "s":
-                    album()
+                    track()
                 else:
                     remove_temp_files()
                     main()
