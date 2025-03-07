@@ -31,6 +31,8 @@ bash install.sh
 
 • Windows 10: ✔
 
+• MacOS: ❌
+
 #
 
 # New feature implementations and version 1/1.2
