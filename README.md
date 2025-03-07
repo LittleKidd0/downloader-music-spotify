@@ -43,9 +43,9 @@ bash install.sh
 **4: The default format is "m4a" and the song bitrate is 128Kbps by default.**
 
 # version 1.3
-**4: New playlist download method**
+**5: New playlist download method**
 
-**5: In the playlist download function, it is downloaded directly without using the "windows_download" function (windows users only)**
+**6: In the playlist download function, it is downloaded directly without using the "windows_download" function (windows users only)**
 #
 
 # DISCLAIMER
