@@ -2,26 +2,29 @@
 
 if [ -f "/etc/debian_version" ]; then
     PKG_MANAGER="apt-get"
+    PYTHON_CMD="python3"
+    REQUIRED_PACKAGES="jq nodejs npm python3-pip"
 elif [ -d "/data/data/com.termux/files/usr" ]; then
     PKG_MANAGER="pkg"
+    PYTHON_CMD="python"
+    REQUIRED_PACKAGES="jq nodejs npm python"
 else
     echo "Unsupported system." >&2
     exit 1
 fi
 
-$PKG_MANAGER update -y && $PKG_MANAGER install jq && $PKGMANAGER install nodejs && $PKGMANAGER install npm && $PKGMANAGER install python3-pip
+"$PKG_MANAGER" update -y || { echo "Error updating packages." >&2; exit 1; }
+"$PKG_MANAGER" install -y $REQUIRED_PACKAGES || { echo "Error installing required packages." >&2; exit 1; }
 
-if [ ! -f package.json ]; then
-    echo "package.json not found. Creating one..."
-    npm init -y
+[ ! -f package.json ] && npm init -y || true
+jq '. + {"type": "module"}' package.json > temp.json && mv temp.json package.json || { echo "Error modifying package.json." >&2; exit 1; }
+
+npm install node-fetch axios qs || { echo "Error installing npm dependencies." >&2; exit 1; }
+
+if [ -f requirements.txt ]; then
+    pip install -r requirements.txt || { echo "Error installing Python dependencies." >&2; exit 1; }
 fi
 
-echo "Modifying package.json to use ES modules..."
-jq '. + {"type": "module"}' package.json > temp.json && mv temp.json package.json
+"$PYTHON_CMD" main.py || { echo "Error executing main.py." >&2; exit 1; }
 
-echo "Installing dependencies..."
-npm install node-fetch axios qs
-
-pip install -r requirements.txt
-
-python3 main.py
+echo "Script completed."
