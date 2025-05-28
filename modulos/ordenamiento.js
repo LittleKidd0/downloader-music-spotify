@@ -2,7 +2,7 @@ import fs from 'fs';
 
 fs.readFile('final.json', 'utf8', (err, data) => {
     if (err) {
-        console.error('Error al leer el archivo:', err);
+        console.error('Error reading file:', err);
         return;
     }
 
@@ -18,7 +18,7 @@ fs.readFile('final.json', 'utf8', (err, data) => {
 
     fs.writeFile('links.json', JSON.stringify(downloadLinks, null, 2), 'utf8', (err) => {
         if (err) {
-            console.error('Error al guardar los enlaces ordenados:', err);
+            console.error('Error saving sorted links:', err);
             return;
         }
     });
