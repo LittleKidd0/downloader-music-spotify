@@ -1,63 +1,61 @@
 @echo off
-setlocal enableDelayedExpansion
+setlocal
 
-:: --- Configuration ---
-set "JQ_DOWNLOAD_URL=https://github.com/stedolan/jq/releases/download/jq-1.6/jq-win64.exe"
-set "JQ_EXE_NAME=jq.exe"
-set "NPM_DEPS=node-fetch axios qs"
-set "PYTHON_REQ_FILE=requirements.txt"
-set "MAIN_PYTHON_SCRIPT=main.py"
-
-:: --- Functions ---
-:: Function to check last command's error level
-:CheckError
-if %errorlevel% neq 0 (
-    echo ERROR: %~1
-    exit /b %errorlevel%
-)
-goto :eof
-
-:: --- Main Script ---
-
-echo Checking for %JQ_EXE_NAME%...
-if not exist "%JQ_EXE_NAME%" (
-    echo %JQ_EXE_NAME% not found. Downloading for Windows...
-    powershell -Command "Invoke-WebRequest -Uri '%JQ_DOWNLOAD_URL%' -OutFile '%JQ_EXE_NAME%'"
-    call :CheckError "Failed to download %JQ_EXE_NAME%."
-    echo %JQ_EXE_NAME% downloaded successfully.
+if not exist jq.exe (
+    echo jq.exe not found. Downloading jq for Windows...
+    powershell -Command "Invoke-WebRequest -Uri https://github.com/stedolan/jq/releases/download/jq-1.6/jq-win64.exe -OutFile jq.exe"
+    if exist jq.exe (
+        echo jq.exe downloaded successfully.
+    ) else (
+        echo Error: jq.exe could not be downloaded. Please check your internet connection or download manually.
+        exit /b 1
+    )
 )
 
-echo Checking for package.json...
 if not exist package.json (
-    echo package.json not found. Creating one with 'npm init -y'...
+    echo package.json not found. Creating one...
     npm init -y
-    call :CheckError "Failed to initialize package.json."
 )
 
 echo Modifying package.json to use ES modules...
+
+
 jq ". + {\"type\": \"module\"}" package.json > temp.json && move /Y temp.json package.json
-call :CheckError "Failed to modify package.json with jq. Ensure jq.exe is in PATH or current directory, and package.json is valid JSON."
 
-echo Installing Node.js dependencies (%NPM_DEPS%)...
-npm install %NPM_DEPS%
-call :CheckError "Failed to install npm dependencies."
-
-echo Installing Python dependencies from %PYTHON_REQ_FILE%...
-if exist "%PYTHON_REQ_FILE%" (
-    pip install -r "%PYTHON_REQ_FILE%"
-    call :CheckError "Failed to install pip dependencies from %PYTHON_REQ_FILE%."
-) else (
-    echo Warning: %PYTHON_REQ_FILE% not found. Skipping Python dependency installation.
+if %errorlevel% neq 0 (
+    echo Error: Failed to modify package.json with jq.
+    install.bat
 )
 
-echo Running Python script: %MAIN_PYTHON_SCRIPT%...
-if not exist "%MAIN_PYTHON_SCRIPT%" (
-    echo ERROR: %MAIN_PYTHON_SCRIPT% not found.
+echo Installing dependencies...
+npm install node-fetch axios qs
+
+if %errorlevel% neq 0 (
+    echo Error: npm dependencies installation failed.
     exit /b 1
 )
-python "%MAIN_PYTHON_SCRIPT%"
-call :CheckError "Python script execution failed."
 
-echo All setup and scripts completed successfully!
+echo All set! ES modules configured and dependencies installed.
+
+
+echo Installing Python dependencies...
+pip install -r requirements.txt
+
+if %errorlevel% neq 0 (
+    echo Error: pip dependencies installation failed.
+    exit /b 1
+)
+
+echo Running Python script...
+python main.py
+
+if %errorlevel% neq 0 (
+    echo Error: Python script execution failed.
+    exit /b 1
+)
+
+echo Python script executed successfully!
+
+python main.py
 
 endlocal
