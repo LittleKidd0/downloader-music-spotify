@@ -6,7 +6,7 @@ const outputFolder = 'result';
 
 fs.readdir(outputFolder, (err, files) => {
     if (err) {
-        console.error('Error al leer la carpeta:', err);
+        console.error('Error reading folder:', err);
         return;
     }
 
