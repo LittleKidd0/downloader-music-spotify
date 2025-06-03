@@ -47,7 +47,7 @@ async function downloadTrack(track, index, cookieHeader) {
 
   try {
     const response = await axios.post(
-      'https://spotisongdownloader.to/api/composer/spotify/wertyuht9847635.php',
+      'https://spotisongdownloader.to/api/composer/spotify/ssdw23456ytrfds.php',
       qs.stringify(formData),
       { headers }
     );
