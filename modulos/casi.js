@@ -2,7 +2,7 @@ import fs from 'fs';
 import axios from 'axios';
 import qs from 'qs';
 
-const url = 'https://spotisongdownloader.to/api/composer/spotify/wertyuht9847635.php';
+const url = 'https://spotisongdownloader.to/api/composer/spotify/ssdw23456ytrfds.php';
 
 let jsonData;
 try {
