@@ -26,7 +26,7 @@ async function downloadTrack(track, index, cookieHeader) {
   const headers = {
     'Host': 'spotisongdownloader.to',
     'Cookie': `${cookieHeader}; _ga=; quality=m4a`,
-    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64; x64; rv:133.0) Gecko/20100101 Firefox/133.0/fmM2KlW3aEGgH7-85',
+    'User-Agent': 'Linux_Parrot/_LittleKidd0',
     'Accept': 'application/json, text/javascript, */*; q=0.01',
     'Accept-Language': 'en-US,en;q=0.5',
     'Accept-Encoding': 'gzip, deflate, br',
