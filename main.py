@@ -99,50 +99,9 @@ def album():
             time.sleep(2)
             album()
 def playlist():
-    clear_console()
-    display_logo()
-    url_playlist = input("Playlist URL (enter to return): ")
-    if url_playlist == "":
-        main()
-    elif url_playlist.startswith(("https://open.spotify.com/intl-es/playlist", "https://open.spotify.com/playlist")):
-        run_node_module("playlist.js", url_playlist)
-        run_node_module("playlist2.js")
-        if system_ == "Windows":
-            with open("final.json", "r") as osi:
-                datos = json.load(osi)
-                for gg in datos:
-                    webbrowser.open(gg)
-                    time.sleep(2)
-            if input("Download another playlist? (s/n): ").lower() == "s":
-                remove_temp_files()
-                playlist()
-            else:
-                remove_temp_files()
-                main()
-        elif system_ == "Linux":
-            try:
-                with open("final.json", "r", encoding="utf-8") as file:
-                    links2 = json.load(file)
-            except (FileNotFoundError, json.JSONDecodeError):
-                pass
-                return
-            with open("data.json", "r") as osi:
-                data_ = json.load(osi)
-                pname_value = data_['track_details']['pname']
-                print(pname_value)
-            for link in links2:
-                os.system(f"wget '{link}' -P playlist/{pname_value}")
-            run_node_module(f"ren.js playlist/{pname_value}")
-            remove_temp_files()
-            if input("Download another playlist? (s/n): ").lower() == "s":
-                playlist()
-            else:
-                remove_temp_files()
-                main()
-        else:
-            print("Invalid URL. Please enter a valid Spotify URL.")
-            time.sleep(2)
-            playlist()
+    print("Working!! 👷")
+    time.sleep(2)
+    main()
 def track():
     clear_console()
     display_logo()
@@ -180,7 +139,7 @@ def peticiones():
     display_logo()
     print("""
                                 [1] download only track
-                                [2] download only playlist
+                                [2] download only playlist- Working 👷
                                 [3] download only album
                                 [4] return
     """)
