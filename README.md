@@ -22,7 +22,6 @@ Termux
 bash install.sh
 ```
 
-
 #
 # Tested in
 • Linux (Debian): ✔
@@ -32,12 +31,10 @@ bash install.sh
 • Windows 10: ✔
 
 • MacOS: ❌
-
 #
-
 # New feature implementations and version 1/1.2
-**1: Generation of valid cookies for unlimited download**
 
+**1: Generation of valid cookies for unlimited download**
 **2: Use the tool in windows 10!**
 
 **3: Differentiate between systems for file downloads**
@@ -50,11 +47,16 @@ bash install.sh
 **6: In the playlist download function, it is downloaded directly without using the "windows_download" function (windows users only)**
 #
 
+# Version 1.4
+**7: I found a difference in the Spotify "URL" that doesn't find it in the "API", it finds it as a video and converts it to m4a using ffmpeg (the quality may vary depending on the URL I guess)**
+
+**8: They implemented a "captcha" that is about sums, I bypassed its "security", xd.**
+
 # DISCLAIMER
 
 **• This tool was created for learning purposes and I am not responsible for the misuse of this tool as it is not downloaded directly from the "spotify" page, it is an external page of spotify. The use of the name of this tool "downloader-music-spotify" is offered only as a context.**
 # 
-**• This tool was made to bypass the 3-day download limits..**
+**• This tool was created to avoid the 3-day download limit and out of boredom, xd.**
 
 ![imagen](https://github.com/user-attachments/assets/c4779395-7cde-49c0-9426-860dfda19d67)
 
