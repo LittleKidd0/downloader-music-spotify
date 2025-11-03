@@ -1,4 +1,3 @@
-// modulos/casi2.js
 import fs from 'fs';
 import axios from 'axios';
 import qs from 'qs';
@@ -48,7 +47,7 @@ async function downloadTrack(track, index, cookieHeader) {
 
 const headers = {
   "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
-  "Cookie": "_ga=; PHPSESSID=plQdx2PI3aw7Z4vlC7uLa1imPXNGxAWo; quality=m4a",
+  "Cookie": "_ga=; PHPSESSID=2tyECekSHks9Hp9CbBtEVRm2sMq0FKEB; quality=m4a",
   "Accept": "application/json, text/javascript, */*; q=0.01",
   "Accept-Language": "es-CL,es;q=0.8,en-US;q=0.5,en;q=0.3",
   "Accept-Encoding": "gzip, deflate, br",
