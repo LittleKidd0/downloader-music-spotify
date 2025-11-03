@@ -154,5 +154,7 @@ async function main() {
 
 // Ejecutar
 main().catch(console.error);
+// Este script es para dejar listo el PHPSESSID para hacer las descargas :p
+
 
 
