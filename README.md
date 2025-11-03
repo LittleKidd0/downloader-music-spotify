@@ -1,5 +1,3 @@
-# Downloader music spotify V1.3
-
 # Installation & requirements
 
 Have Node.js and Python downloaded on your computer, preferably the latest versions.
@@ -26,33 +24,26 @@ bash install.sh
 # Tested in
 • Linux (Debian): ✔
 
-• Termux: ✔
-
 • Windows 10: ✔
 
-• MacOS: ❌
-#
-# New feature implementations and version 1/1.2
+• MacOS: ⭕ Not Tested
 
-**1: Generation of valid cookies for unlimited download**
-**2: Use the tool in windows 10!**
+• Termux: ⭕ Not Tested
 
-**3: Differentiate between systems for file downloads**
-
-**4: The default format is "m4a" and the song bitrate is 128Kbps by default.**
-
-# version 1.3
-**5: New playlist download method**
-
-**6: In the playlist download function, it is downloaded directly without using the "windows_download" function (windows users only)**
 #
 
-# Version 1.4
-**7: I found a difference in the Spotify "URL" that doesn't find it in the "API", it finds it as a video and converts it to m4a using ffmpeg (the quality may vary depending on the URL I guess)**
+# Version 1.5 GUI
 
-**8: They implemented a "captcha" that is about sums, I bypassed its "security", xd.**
+**1: A "GUI" system was implemented for greater convenience and a better style.**
 
-# DISCLAIMER
+**2: The method for downloading songs via playlists is still under development. Who knows when it will be finished, xd.**
+
+**3: The album system might have data handling issues, but that depends on the "API". (I reverse-engineered it to download the data, xd.)**
+# Reference images
+<img width="1887" height="760" alt="image" src="https://github.com/user-attachments/assets/0b2d933c-6389-4b94-9f67-de27a7f0f676" />
+<img width="928" height="777" alt="que_pasa2" src="https://github.com/user-attachments/assets/0d574c99-c78d-4b60-a715-bbf3f9472000" />
+
+# 📢 DISCLAIMER
 
 **• This tool was created for learning purposes and I am not responsible for the misuse of this tool as it is not downloaded directly from the "spotify" page, it is an external page of spotify. The use of the name of this tool "downloader-music-spotify" is offered only as a context.**
 # 
@@ -64,4 +55,4 @@ bash install.sh
 
 Contact
 
-Discord: kid.kidd
+Discord: kid.kidd / Mail: lnkid.r@proton.me
