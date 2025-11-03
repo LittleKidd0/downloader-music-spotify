@@ -64,7 +64,7 @@ async function main() {
       "Cookie": `_ga=; PHPSESSID=${phpsessid}; quality=m4a; dcount=1`,
       "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:97.0) Gecko/20100101 Firefox/97.0",
       "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
-      "Accept-Language": "es-CL,es;q=0.8,en-US;q=0.5,en;q=0.3",
+      "Accept-Language": "es-ES,es;q=0.8,en-US;q=0.5,en;q=0.3",
       "Accept-Encoding": "gzip, deflate, br",
       "Upgrade-Insecure-Requests": "1",
       "Sec-Fetch-Dest": "document",
@@ -85,7 +85,7 @@ async function main() {
       "Cookie": `_ga=; PHPSESSID=${phpsessid}; quality=m4a; dcount=1`,
       "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:97.0) Gecko/20100101 Firefox/97.0",
       "Accept": "*/*",
-      "Accept-Language": "es-CL,es;q=0.8,en-US;q=0.5,en;q=0.3",
+      "Accept-Language": "es-ES,es;q=0.8,en-US;q=0.5,en;q=0.3",
       "Accept-Encoding": "gzip, deflate, br",
       "Referer": "https://spotisongdownloader.app/",
       "Sec-Fetch-Dest": "empty",
@@ -107,7 +107,7 @@ async function main() {
       "Cookie": `_ga=; PHPSESSID=${phpsessid}; quality=m4a; dcount=1`,
       "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:97.0) Gecko/20100101 Firefox/97.0",
       "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
-      "Accept-Language": "es-CL,es;q=0.8,en-US;q=0.5,en;q=0.3",
+      "Accept-Language": "es-ES,es;q=0.8,en-US;q=0.5,en;q=0.3",
       "Accept-Encoding": "gzip, deflate, br",
       "Referer": "https://spotisongdownloader.app/",
       "Content-Type": "application/x-www-form-urlencoded",
@@ -135,7 +135,7 @@ async function main() {
       "Cookie": `_ga=; PHPSESSID=${phpsessid}; quality=m4a; dcount=1`,
       "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:97.0) Gecko/20100101 Firefox/97.0",
       "Accept": "application/json, text/javascript, */*; q=0.01",
-      "Accept-Language": "es-CL,es;q=0.8,en-US;q=0.5,en;q=0.3",
+      "Accept-Language": "es-ES,es;q=0.8,en-US;q=0.5,en;q=0.3",
       "Accept-Encoding": "gzip, deflate, br",
       "Referer": "https://spotisongdownloader.app/track.php",
       "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
@@ -156,3 +156,4 @@ async function main() {
 
 // Ejecutar
 main().catch(console.error);
+
