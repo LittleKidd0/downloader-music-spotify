@@ -1,0 +1,4 @@
+colorama
+PyQt5
+qdarktheme
+mutagen
