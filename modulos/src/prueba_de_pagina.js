@@ -1,5 +1,3 @@
-// Script que replica EXACTAMENTE las peticiones entregadas
-// Node 18+ o Deno recomendado
 import fs from 'fs';
 import crypto from 'crypto';
 import path from "path";
@@ -156,4 +154,5 @@ async function main() {
 
 // Ejecutar
 main().catch(console.error);
+
 
